@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <link rel="stylesheet" href="{% static 'css/style_faq.css' %}">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Frequently Asked Questions</h1>
+    </header>
+
+    <!-- Main Section -->
+    <main id="faq-container"></main>
+
+    <script>
+        const faqData = {
+            ayush_license: {
+                types_of_drugs: {
+                    question: "What types of drugs can get an AYUSH License?",
+                    answer: "AYUSH License can be granted to Ayurvedic, Unani, and Siddha products, including Ayurvedic products, herbal products, drug products, and cosmetics as per Section 33 B of the Drugs and Cosmetics Act, 1940."
+                },
+                issuing_authority: {
+                    question: "Which authority provides AYUSH License?",
+                    answer: "The Ministry of AYUSH provides the AYUSH License and regulates the products under AYUSH. Before the establishment of the Ministry of AYUSH, the Department of Indian System of Medicine and Homeopathy (IS&H) provided the AYUSH License."
+                },
+                purpose_of_license: {
+                    question: "What is the purpose of getting an AYUSH License?",
+                    answer: "Getting an AYUSH License is a prerequisite for businesses dealing in Ayurvedic, Unani, and Siddha products to operate legally in the market."
+                },
+                license_definition: {
+                    question: "What is AYUSH License?",
+                    answer: "An AYUSH License is required for businesses involved in the manufacturing, retail, export, import, or sale of herbal, Unani, or Ayurvedic products to ensure legal compliance."
+                },
+                ayush_retail_license: {
+                    question: "What license is required to sell Ayurvedic drugs or cosmetics?",
+                    answer: "An AYUSH Retail License is required to sell Ayurvedic, Siddha, or Unani drugs and cosmetics. Selling these products without the license can lead to legal consequences."
+                },
+                ayush_manufacturing_license: {
+                    question: "What is AYUSH Manufacturing License?",
+                    answer: "The AYUSH Manufacturing License is required for applicants who wish to manufacture and market Ayurvedic, Unani, or Siddha products. The procedure for obtaining the license varies by state, and applicants must comply with state laws."
+                },
+                ayush_loan_license: {
+                    question: "What is AYUSH Loan License?",
+                    answer: "An AYUSH Loan License is obtained when the applicant does not have a manufacturing unit. The applicant can use the facilities of a GMP-certified manufacturer to produce the products. The products must be approved by the respective authorities."
+                },
+                ayush_contract_license: {
+                    question: "What is white-level manufacturing or product-to-product manufacturing or AYUSH contract License?",
+                    answer: "This license is for situations where the applicant does not have a manufacturing unit and relies on a third-party manufacturer for production and marketing. The third-party manufacturer handles marketing, while the compliance work is the manufacturer's responsibility."
+                },
+                ayush_wholesale_license: {
+                    question: "What is AYUSH Wholesale License?",
+                    answer: "An AYUSH Wholesale License is required when the applicant wants to sell AYUSH products as a wholesaler. This is considered a premium AYUSH License."
+                },
+                unani_manufacturing_license: {
+                    question: "What is Unani Manufacturing License?",
+                    answer: "An Unani Manufacturing License is issued for the production of Unani drugs and medications. Unani medicine is known for its effectiveness in curing infections and preventing diseases."
+                },
+                siddha_manufacturing_license: {
+                    question: "What is Siddha Manufacturing License?",
+                    answer: "A Siddha Manufacturing License is given for the production of Siddha treatments and medications, which aim to balance the harmony between the body, mind, and soul."
+                },
+                gmp: {
+                    question: "What is Good Manufacturing Practice (GMP)?",
+                    answer: "Good Manufacturing Practice (GMP) ensures that products are regularly produced and maintained according to the quality standards prescribed by the World Health Organization (WHO), reducing risks and ensuring drug safety. A GMP certificate indicates that the manufacturing company meets international standards."
+                },
+                cooper_certificate: {
+                    question: "What is COOP (Certificate of Pharmaceutical Product)?",
+                    answer: "The COOP is a legal document that certifies that the manufacturing company has obtained the necessary approvals to legally sell its products in a given country. It is also required for companies looking to expand their business overseas."
+                },
+                gmp_mandatory: {
+                    question: "Is it mandatory to apply for the AYUSH Manufacturing License along with GMP (Good Manufacturing Practice)?",
+                    answer: "Yes, according to Rule and Form 25D of the Drugs and Cosmetics Rule, 1945, it is mandatory to apply for an AYUSH Manufacturing License along with GMP."
+                },
+                ayush_ngo_portal: {
+                    question: "What is the Ayush NGO Portal?",
+                    answer: "The Ayush NGO Portal was developed by the Ministry of AYUSH for digitalizing various processes related to Central Sector Schemes. The portal streamlines everything from receiving proposals to releasing grants and funding."
+                },
+                central_sector_schemes: {
+                    question: "What is the Central Sector Scheme?",
+                    answer: "Central Sector Schemes are government schemes that are fully planned, funded, and implemented by the central government."
+                },
+                available_schemes: {
+                    question: "Which schemes are available under the Central Sector Scheme on Ayush NGO Portal?",
+                    answer: [
+                        "Central Sector Scheme for Upgradation to Centres of Excellence (COE)",
+                        "Central Sector Scheme for Promotion of Information, Education, and Communication (IEC) in AYUSH",
+                        "Central Sector Scheme for Continuing Medical Education (CME)",
+                        "Central Sector Scheme for Promotion of AYUSH Intervention in Public Health Initiatives (PHI)",
+                        "Central Sector Scheme for Extra Mural Research (EMR)",
+                        "Champion Services Sector Scheme",
+                        "Central Sector Scheme for Establishment of AYUSH Super Specialty Hospitals",
+                        "Central Sector Scheme for Skill Development in AYUSH Sector under Champion Services Sector Scheme for Medical Value Travel",
+                        "Central Sector Scheme for Promotion of International Co-operation (IC) in AYUSH",
+                        "Central Sector Scheme on Conservation, Development, and Sustainable Management of Medicinal Plants"
+                    ]
+                },
+                applying_for_grant: {
+                    question: "How to apply for a grant/funding through Ayush NGO Portal?",
+                    answer: "NGOs interested in applying for grants must submit their details through the application form of the relevant scheme and submit their proposal through the Ayush NGO Portal."
+                },
+                prerequisite_for_grants: {
+                    question: "What is the prerequisite for NGOs to apply for grants on this Portal?",
+                    answer: "NGOs must be registered on the NGO Darpan portal to apply for grants on the Ayush NGO Portal."
+                },
+                portal_integration: {
+                    question: "Is this portal integrated with other Portals?",
+                    answer: "Yes, the Ayush NGO Portal is integrated with the NGO Darpan Portal of the Niti Aayog and the Public Financial Management System (PFMS)."
+                }
+            }
+        };
+
+        const faqContainer = document.getElementById('faq-container');
+
+        // Populate FAQ questions directly on the page
+        for (let key in faqData.ayush_license) {
+            const item = faqData.ayush_license[key];
+
+            const faqItem = document.createElement('div');
+            faqItem.className = 'faq-item';
+
+            const question = document.createElement('h3');
+            question.textContent = item.question;
+
+            const answer = document.createElement('p');
+            if (Array.isArray(item.answer)) {
+                answer.innerHTML = item.answer.join('<br>'); // If answer is an array, join them with line breaks
+            } else {
+                answer.textContent = item.answer;
+            }
+
+            faqItem.appendChild(question);
+            faqItem.appendChild(answer);
+            faqContainer.appendChild(faqItem);
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #007A9C, #00C6FF);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Container Styling */
+    .login-container {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      width: 450px;
+      animation: fadeIn 1s ease-in-out;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      color: #333;
+    }
+
+    .login-container h2 {
+      text-align: center;
+      color: #007A9C;
+      margin-bottom: 20px;
+    }
+
+    .login-container form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .login-container input {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .login-container input:focus {
+      outline: none;
+      box-shadow: 0 0 5px #007A9C;
+    }
+
+    .login-container button {
+      background: linear-gradient(135deg, #007A9C, #00C6FF);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 12px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .login-container button:hover {
+      background: linear-gradient(135deg, #005F7A, #0099CC);
+      transform: translateY(-3px);
+    }
+
+    .login-container .signup-link {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .login-container .signup-link a {
+      color: #007A9C;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .login-container .signup-link a:hover {
+      color: #00C6FF;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login to Your Account</h2>
+    <form method="POST" action="{% url 'login' %}">
+      {% csrf_token %}
+      <input type="text" name="username" placeholder="Enter your username" required>
+      <input type="password" name="password" placeholder="Enter your password" required>
+      <button type="submit">Login</button>
+    </form>
+    <div class="signup-link">
+      <p>Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
+    </div>    
+  </div>
+</body>
+</html>

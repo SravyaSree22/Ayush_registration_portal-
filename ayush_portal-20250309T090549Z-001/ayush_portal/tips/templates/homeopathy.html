@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "AYUSH Portal" %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_index.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="profile-container">
+                <img src="{{url_for('static', filename='images/modi.jpg')}}" alt="{% trans 'Prime Minister' %}" class="profile">
+                <p>{% trans 'Sri Narendra Modi' %}<br><span>{% trans 'Hon\'ble Prime Minister' %}</span></p>
+            </div>
+            <div class="center-logo">
+                <img src="{{url_for('static', filename='images/emblem.jpeg')}}" alt="{% trans 'Government Logo' %}" onclick="location.href='/';">
+                <p>{% trans 'Government of India' %}<br><span>{% trans 'Ministry of Ayush' %}</span></p>
+            </div>
+            <div class="profile-container">
+                <img src="{{url_for('static', filename='images/minister.jpg')}}" alt="{% trans 'Minister' %}" class="profile">
+                <p>{% trans 'Shri Jadhav Prataprao Ganpatrao' %}<br><span>{% trans 'Minister of Ayush' %}</span></p>
+            </div>
+        </div>
+        <nav>
+            <ul class="navbar">
+                <div class="left-links">
+                    <li><button onclick="location.href='/';">{% trans 'Home' %}</button></li>
+                    <li><button onclick="location.href='/about';">{% trans 'About Us' %}</button></li>
+                    <li><button onclick="location.href='/sitemap';">{% trans 'Site Map' %}</button></li>
+                    <li><button onclick="location.href='/registration';">{% trans 'Register' %}</button></li>
+                    <li><button onclick="location.href='/contact';">{% trans 'Contact Us' %}</button></li>
+                </div>
+                <div class="right-language">
+                    <li class="language">
+                        <select id="language-select" onchange="location.href='/?lang=' + this.value">
+                            <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>{% trans 'English' %}</option>
+                            <option value="hindi" {% if LANGUAGE_CODE == 'hi' %}selected{% endif %}>{% trans 'Hindi' %}</option>
+                            <option value="telugu" {% if LANGUAGE_CODE == 'te' %}selected{% endif %}>{% trans 'Telugu' %}</option>
+                        </select>
+                    </li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <main>
+        <div class="homeopathy-section">
+            <img src="{{url_for('static', filename='images/homeopathy.png')}}" alt="{% trans 'Homeopathy Image' %}" class="homeopathy-image">
+            <div id="homeopathy-text" class="homeopathy-text">
+                <h2>{% trans 'Homeopathy' %}</h2>
+                <p>
+                    {% trans "Homeopathy is a medical system based on the belief that the body can cure itself. 
+                    Those who practice it use tiny amounts of natural substances, like plants and minerals. 
+                    They believe these stimulate the healing process. It was developed in the late 1700s in Germany." %}
+                </p>
+                <h3>{% trans 'Startups under Homeopathy Sector' %}</h3>
+            </div>
+        </div>
+    
+        <div class="startups">
+            <div class="startup-box"></div>
+            <div class="startup-box"></div>
+            <div class="startup-box"></div>
+        </div>
+    </main>
+    
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <a href="/faq">{% trans 'FAQ' %}</a>
+        </div>
+    </footer>
+</body>
+</html>

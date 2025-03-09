@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYUSH Portal</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style_index.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        function changeLanguage() {
+            const language = document.getElementById('language-select').value;
+
+            if (language === 'telugu') {
+                document.body.innerHTML = '<h1>తెలుగు వెర్షన్ అభివృద్ధిలో ఉంది...</h1>';
+            } else if (language === 'hindi') {
+                document.body.innerHTML = '<h1>हिंदी संस्करण निर्माणाधीन...</h1>';
+            } else {
+                location.reload(); // Default to English
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="profile-container">
+                <img src="{% static 'images/modi.jpg' %}" alt="Prime Minister" class="profile">
+                <p>Sri Narendra Modi<br><span>Hon'ble Prime Minister</span></p>
+            </div>
+            <div class="center-logo">
+                <img src="{% static 'images/emblem.jpeg' %}" alt="Government Logo" onclick="location.href='/';">
+                <p>Government of India<br><span>Ministry of Ayush</span></p>
+            </div>
+            <div class="profile-container">
+                <img src="{% static 'images/minister.JPG' %}" alt="Minister" class="profile">
+                <p>Shri Jadhav Prataprao Ganpatrao<br><span>Minister of Ayush</span></p>
+            </div>
+        </div>
+        <nav>
+            <ul class="navbar">
+                <div class="left-links">
+                    <li><button onclick="location.href='/';">Home</button></li>
+                    <li><button onclick="location.href='/about';">About Us</button></li>
+                    <li><button onclick="location.href='/sitemap';">Site Map</button></li>
+                    <li><button onclick="location.href='/registration';">Register</button></li>
+                    <li><button onclick="location.href='/contact';">Contact Us</button></li>
+                </div>
+                <div class="right-language">
+                    <li class="language">
+                        <select id="language-select" onchange="changeLanguage()">
+                            <option value="en">English</option>
+                            <option value="hindi">Hindi</option>
+                            <option value="telugu">Telugu</option>
+                        </select>
+                    </li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <main>
+        <section class="contact-us">
+            <h2>Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>Location:</h3>
+                    <p>1. Ministry of Ayush, Ayush Bhawan, B Block, GPO Complex, INA, New Delhi – 110023</p>
+                    <p>2. Ayush NBCC Office, NBCC Central Courtyard Garden 1241-1340 Flats, Block B, East Kidwai Nagar, Kidwai Nagar, New Delhi, Delhi 110023</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Web Information Manager:</h3>
+                    <p>Ms. Kavita Garg, Joint Secretary Room No.-212,<br> Ayush Bhawan GPO Complex, New Delhi-110023</p>
+                    <p>Content related query:<br>Ph: 011-24651938<br>Email: <a href="mailto:webmanager-ayush@gov.in">webmanager-ayush@gov.in</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>For MoA General Query:</h3>
+                    <p>1800-11-22-02 (9:00 AM to 5:30 PM) (IST)<br>Ph: 011-24651942</p>
+                    <p>For Website related query:<br>Ph: 011-24648354</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <a href="{% url 'faq' %}">FAQ</a>
+        </div>
+    </footer>
+</body>
+</html>

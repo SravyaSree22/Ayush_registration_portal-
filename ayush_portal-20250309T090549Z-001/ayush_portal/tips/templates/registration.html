@@ -1,0 +1,95 @@
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AYUSH Registration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/ayush_registration.css' %}">
+</head>
+<body>
+  <div class="form">
+    <div class="header">
+      <h2>AYUSH Registration</h2>
+      <p>Complete the form to register your business with AYUSH.</p>
+    </div>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- Progress Tracker -->
+      <div class="pagination">
+        <div class="step-tracker">
+          <div class="number active">1</div>
+          <div class="bar"></div>
+          <div class="number">2</div>
+          <div class="bar"></div>
+          <div class="number">3</div>
+          <div class="bar"></div>
+          <div class="number">4</div>
+          <div class="bar"></div>
+          <div class="number">5</div>
+          <div class="bar"></div>
+          <div class="number">6</div>
+          <div class="bar"></div>
+          <div class="number">7</div>
+        </div>
+      </div>
+
+      <!-- Steps -->
+      <div class="steps">
+        <!-- Step 1: Business Registration Documents -->
+        <div class="step active">
+          <h4>Business Registration Documents</h4>
+          <div class="grid">
+            <div class="col">
+              <label for="Company">Type of Company</label>
+              <select name="Company" id="Company">
+                <option value="Private Limited">Private Limited</option>
+                <option value="LLP">LLP</option>
+                <option value="Partnership">Partnership</option>
+              </select>
+              <label for="CoI">Certificate of Incorporation</label>
+              <input type="file" id="CoI" name="CoI">
+              <label for="GST">GST Registration Certificate</label>
+              <input type="file" id="GST" name="GST">
+              <label for="PAN">PAN Card of the Company</label>
+              <input type="file" id="PAN" name="PAN">
+              <label for="AProof">Address Proof of the Business</label>
+              <input type="file" id="AProof" name="AProof">
+            </div>
+          </div>
+        </div>
+
+        <!-- Repeat similar blocks for Steps 2 to 7 -->
+        <!-- Example for another step -->
+        <div class="step">
+          <h4>Founder/Director Documents</h4>
+          <div class="grid">
+            <div class="col">
+              <label for="Aadhar">Aadhaar Card</label>
+              <input type="file" id="Aadhar" name="Aadhar">
+              <label for="PANFounder">PAN Card</label>
+              <input type="file" id="PANFounder" name="PANFounder">
+              <label for="photo">Passport-sized Photograph</label>
+              <input type="file" id="photo" name="photo">
+              <label for="AProofFounder">Address Proof</label>
+              <input type="file" id="AProofFounder" name="AProofFounder">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="button-container">
+        <button type="button" id="prevBtn" onclick="move(-1)">Previous</button>
+        <button type="button" id="nextBtn" onclick="move(1)">Next</button>
+      </div>
+      <div class="button-container">
+        <button type="submit" id="submitBtn" disabled>Submit</button>
+      </div>
+    </form>
+  </div>
+  <script src="{% static 'js/ayush_registration.js' %}"></script>
+</body>
+</html>

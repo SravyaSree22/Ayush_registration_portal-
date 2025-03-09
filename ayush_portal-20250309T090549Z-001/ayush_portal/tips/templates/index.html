@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% load i18n %}
+        <p>{% trans "Hello, World!" %}</p>
+        </title>
+    <link rel="stylesheet" href="{% static 'css/style_index.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="profile-container">
+                <img src="{% static 'images/modi.jpg' %}" alt="{% trans 'Prime Minister' %}" class="profile">
+                <p>{% trans "Sri Narendra Modi" %}<br><span>{% trans 'Hon\'ble Prime Minister' %}</span></p>
+            </div>
+            <div class="center-logo">
+                <img src="{% static 'images/emblem.jpeg' %}" alt="{% trans 'Government Logo' %}" onclick="location.href='/';">
+                <p>{% trans 'Government of India' %}<br><span>{% trans 'Ministry of Ayush' %}</span></p>
+            </div>
+            <div class="profile-container">
+                <img src="{% static 'images/minister.JPG' %}" alt="{% trans 'Minister' %}" class="profile">
+                <p>{% trans 'Shri Jadhav Prataprao Ganpatrao' %}<br><span>{% trans 'Minister of Ayush' %}</span></p>
+            </div>
+        </div>
+        <nav>
+            <ul class="navbar">
+                <li><button onclick="location.href='/';">{% trans "Home" %}</button></li>
+                <li><button onclick="location.href='/about';">{% trans "About Us" %}</button></li>
+                <li><button onclick="location.href='/sitemap';">{% trans "Site Map" %}</button></li>
+                <li><button onclick="location.href='/registration';">{% trans "Register" %}</button></li>
+                <li><button onclick="location.href='/contact';">{% trans "Contact Us" %}</button></li>
+
+                <li class="language">
+                    <select id="language-select" onchange="location.href='/?lang=' + this.value">
+                        <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>{% trans "English" %}</option>
+                        <option value="hindi" {% if LANGUAGE_CODE == 'hi' %}selected{% endif %}>{% trans "Hindi" %}</option>
+                        <option value="telugu" {% if LANGUAGE_CODE == 'te' %}selected{% endif %}>{% trans "Telugu" %}</option>
+                    </select>
+                </li>
+                <li>
+                    <button class="login-button" onclick="location.href='/login';">{% trans "Login" %}</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Tip Section Above Navigation -->
+    <div class="tip-container">
+        <img src="{% static 'images/tips.JPG' %}" alt="{% trans 'Tip Icon' %}" class="tip-image">
+        <div class="tip-content">
+            <h2 class="tip-title">{% trans "Tip of the Day" %}</h2>
+            <p class="tip-text">{{ tip_of_the_day }}</p>
+        </div>
+    </div>
+
+    <!-- Main Section -->
+    <main>
+        <section class="categories">
+            <div class="category" onclick="location.href='/yoga'">
+                <img src="{% static 'images/yoga.jpeg' %}" alt="{% trans 'Yoga & Naturopathy' %}">
+                <p>{% trans 'Yoga & Naturopathy' %}</p>
+            </div>
+            <div class="category" onclick="location.href='/ayurveda'">
+                <img src="{% static 'images/ayurveda.jpg' %}" alt="{% trans 'Ayurveda' %}">
+                <p>{% trans 'Ayurveda' %}</p>
+            </div>
+            <div class="category" onclick="location.href='/homeopathy'">
+                <img src="{% static 'images/homeopathy.jpg' %}" alt="{% trans 'Homeopathy' %}">
+                <p>{% trans 'Homeopathy' %}</p>
+            </div>
+            <div class="category" onclick="location.href='/unani'">
+                <img src="{% static 'images/unani.jpeg' %}" alt="{% trans 'Unani' %}">
+                <p>{% trans 'Unani' %}</p>
+            </div>
+            <div class="category" onclick="location.href='/siddha'">
+                <img src="{% static 'images/siddha.jpeg' %}" alt="{% trans 'Siddha' %}">
+                <p>{% trans 'Siddha' %}</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <a href ="/faq">{% trans "FAQ" %}</a>
+        </div>
+    </footer>
+</body>
+</html>
